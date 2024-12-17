@@ -10,11 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class TaskListComponent {
   @Input() taskList: any[] = [];
-  @Output() important = new EventEmitter<any>();
   @Output() complete = new EventEmitter<any>();
-  markImportant(task: any) {
-    this.important.emit(task);
-  }
   markComplete(task: any) {
     this.complete.emit(task);
   }
