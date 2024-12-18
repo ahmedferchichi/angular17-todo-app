@@ -19,8 +19,10 @@ export class AllTaskComponent {
   taskList: any[] = [];
   httpService = inject(HttpService);
   stateService = inject(StateService);
+
   ngOnInit() {
   }
+
   addTask() {
     console.log('addTask', this.newTask);
     this.httpService.addTask(this.newTask).subscribe(() => {
@@ -36,12 +38,6 @@ export class AllTaskComponent {
   onComplete(task: any) {
     task.completed = true;
     console.log('complete', task);
-    this.httpService.updateTask(task).subscribe(() => {
-      this.getAllTasks();
-    });
-  }
-  onImportant(task: any) {
-    task.important = true;
     this.httpService.updateTask(task).subscribe(() => {
       this.getAllTasks();
     });
